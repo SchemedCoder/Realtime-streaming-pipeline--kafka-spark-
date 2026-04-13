@@ -1,0 +1,13 @@
+# API & Environment
+requests==2.33.0
+python-dotenv==1.2.2
+
+# Streaming & Processing
+kafka-python==2.3.0
+pyspark==3.5.7
+snowflake-snowpark-python==1.48.1
+
+# Dashboard & Analytics
+streamlit==1.43.0
+pandas==2.2.2
+pyarrow>=10.0.1
