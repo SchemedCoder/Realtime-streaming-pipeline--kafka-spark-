@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Virtual Environment
+venv/
+__pycache__/
+*.py[cod]
+
+# IDE Settings
+.vscode/
+
+# System Files
+.DS_Store
+Thumbs.db
