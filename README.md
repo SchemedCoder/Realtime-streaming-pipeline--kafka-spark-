@@ -4,11 +4,11 @@ This project is an end-to-end data engineering pipeline that tracks live weather
 
 The goal was to move away from simple "static" data and build a Medallion Architecture that handles streaming data with a 1-minute latency.
 
-🏗️ The Architecture
+ The Architecture
 The pipeline follows a modern "Lakehouse" pattern:
 OpenWeather API → Kafka → Spark Bridge → Snowflake (Bronze/Silver/Gold) → Streamlit Dashboard
 
-🛠️ Tech Stack
+Tech Stack
 Ingestion: Python (Requests) & Apache Kafka
 
 Processing: PySpark (Structured Streaming)
@@ -19,7 +19,7 @@ Visualization: Streamlit (Local & Cloud versions)
 
 Environment: Python 3.11, Docker, .env for secret management
 
-📂 Project Structure
+ Project Structure
 producer/: The "Heartbeat" script that polls the API and pushes to Kafka.
 
 spark_job/: The bridge that picks up Kafka streams and writes them to Snowflake.
@@ -30,7 +30,7 @@ dashboard/: A Streamlit UI to visualize temperature and humidity trends.
 
 screenshots/: Visual proof of the pipeline working in Snowflake and the UI.
 
-💡 The "Medallion" Logic
+ The "Medallion" Logic
 I implemented a three-layer storage strategy in Snowflake to ensure data quality:
 
 Bronze (Raw): Every JSON message from the API is dumped here as-is. No data is ever lost.
@@ -39,7 +39,7 @@ Silver (Cleaned): A Dynamic Table that extracts the JSON fields (Temp, Humidity,
 
 Gold (Analytics): The final layer that calculates 1-minute rolling averages. This is what powers the dashboard.
 
-🚀 How to Run It
+ How to Run It
 1. Prereqs
 Kafka running locally.
 
@@ -56,7 +56,7 @@ Fire up the Producer: python producer/weather_producer.py
 
 Open the Dashboard: streamlit run dashboard/app.py
 
-🚧 Challenges I Solved
+ Challenges I Solved
 Schema Evolution: I originally built this for temperature only. I later updated the entire pipeline (Producer to Gold layer) to include Humidity without breaking the existing data.
 
 Resource Management: Implemented requests.Session() in the producer to handle 36 API calls more efficiently, reducing network overhead.
