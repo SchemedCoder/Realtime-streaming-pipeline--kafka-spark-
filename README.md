@@ -1,5 +1,6 @@
-# Weather-streaming-pipeline-
+
  Real-Time Global Weather Streaming Pipeline
+ 
 This project is an end-to-end data engineering pipeline that tracks live weather data for 36 global cities (including Delhi, Lucknow, and Bangalore). It moves data from a live API into a cloud warehouse for real-time analytics.
 
 The goal was to move away from simple "static" data and build a Medallion Architecture that handles streaming data with a 1-minute latency.
