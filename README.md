@@ -58,6 +58,8 @@ Fire up the Producer: python producer/weather_producer.py
 Open the Dashboard: streamlit run dashboard/app.py
 
  Challenges I Solved
+
+
 Schema Evolution: I originally built this for temperature only. I later updated the entire pipeline (Producer to Gold layer) to include Humidity without breaking the existing data.
 
 Resource Management: Implemented requests.Session() in the producer to handle 36 API calls more efficiently, reducing network overhead.
